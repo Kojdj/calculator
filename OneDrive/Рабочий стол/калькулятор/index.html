@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Интерактивный калькулятор</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="theme-toggle" onclick="toggleTheme()" title="Переключить тему">
+    <div class="theme-icon">☀️</div>
+  </div>
+
+  <div class="calculator">
+    <div class="display-container">
+      <div id="previous" class="previous"></div>
+      <div id="display" class="display">0</div>
+      <div class="memory-indicator" id="memory-indicator"></div>
+    </div>
+
+    <div class="mode-switcher">
+      <button class="mode-btn" onclick="toggleMode()">Обычный режим</button>
+    </div>
+
+    <div class="buttons">
+      <button class="gray" onclick="clearAll()">AC</button>
+      <button class="gray" onclick="handleSpecial('±')">±</button>
+      <button class="gray" onclick="handleOperator('%')">%</button>
+      <button class="orange" onclick="handleOperator('/')">÷</button>
+
+      <button onclick="appendNumber('7')">7</button>
+      <button onclick="appendNumber('8')">8</button>
+      <button onclick="appendNumber('9')">9</button>
+      <button class="orange" onclick="handleOperator('*')">×</button>
+
+      <button onclick="appendNumber('4')">4</button>
+      <button onclick="appendNumber('5')">5</button>
+      <button onclick="appendNumber('6')">6</button>
+      <button class="orange" onclick="handleOperator('-')">−</button>
+
+      <button onclick="appendNumber('1')">1</button>
+      <button onclick="appendNumber('2')">2</button>
+      <button onclick="appendNumber('3')">3</button>
+      <button class="orange" onclick="handleOperator('+')">+</button>
+
+      <button class="func-btn scientific" onclick="appendNumber('(')">(</button>
+      <button onclick="appendNumber('0')">0</button>
+      <button class="func-btn scientific" onclick="appendNumber(')')">)</button>
+      <button class="orange" onclick="handleOperator('=')">=</button>
+
+      <div class="memory-buttons scientific">
+        <button class="memory-btn" onclick="memoryClear()">MC</button>
+        <button class="memory-btn" onclick="memoryRecall()">MR</button>
+        <button class="memory-btn" onclick="memoryAdd()">M+</button>
+        <button class="memory-btn" onclick="memorySubtract()">M-</button>
+      </div>
+
+      <button class="func-btn scientific" onclick="handleSpecial('√')">√</button>
+      <button class="func-btn scientific" onclick="handleSpecial('^')">xʸ</button>
+      <button class="func-btn scientific" onclick="handleFunction('sin')">sin</button>
+      <button class="func-btn scientific" onclick="handleFunction('cos')">cos</button>
+      <button class="func-btn scientific" onclick="handleFunction('tan')">tan</button>
+      <button class="func-btn scientific" onclick="handleFunction('ln')">ln</button>
+      <button class="func-btn scientific" onclick="handleFunction('log')">log</button>
+      <button class="func-btn scientific" onclick="handleFunction('factorial')">n!</button>
+      <button class="func-btn scientific" onclick="handleFunction('exp')">eˣ</button>
+      <button class="func-btn scientific" onclick="handleSpecial('π')">π</button>
+    </div>
+
+    <div class="history" id="history">
+      <div class="history-header">
+        <span>История</span>
+        <button class="clear-history" onclick="clearHistory()">Очистить</button>
+      </div>
+      <div class="history-items" id="history-items"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
